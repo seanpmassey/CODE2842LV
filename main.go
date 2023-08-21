@@ -51,12 +51,25 @@ type DesktopDetails struct {
 	DesktopSessionID string `json:"session_id"`
 }
 
+type SessionDetails struct {
+	SessionID             string `json:"id"`
+	SessionUserID         string `json:"user_id"`
+	SessionMachineID      string `json:"machine_id"`
+	SessionDesktopPoolID  string `json:"desktop_pool_id"`
+	SessionType           string `json:"session_type"`
+	SessionState          string `json:"session_state"`
+	SessionStartTime      int64  `json:"start_time"`
+	SessionDisconenctTime int64  `json:"disconnected_time"`
+	SessionDuration       int64  `json:"last_session_duration_ms"`
+}
+
 var ConnectionUserInfo LoginUser
 var ConnectionServerInfo EnvDetails
 var ConnectionTokenInfo LoginToken
 var CSList []CSDetails
 var DesktopPoolList []DesktopPoolDetails
 var DesktopDetailsList []DesktopDetails
+var SessionDetailsList []SessionDetails
 
 func init() {
 	PopulateConfig("config.yml")
